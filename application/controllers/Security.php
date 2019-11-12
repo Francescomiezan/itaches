@@ -144,5 +144,26 @@ class Security extends CI_Controller
         $this->tache->modifier($id_tache, array('status'=>$etapes));
         return redirect('security/index');
     }
+    
+    public function modifier_personnel(){
+
+      $this->form_validation->set_rules('nom', 'Nom', 'required');
+      $this->form_validation->set_rules('prenom', 'Prénoms', 'required');
+
+      if($this->form_validation->run() !== false){
+          $this->personnel->modifier($this->user['id_personnel'] ,array(
+              'nom' => $_POST['nom'],
+              'prenom' => $_POST['prenom'],
+              'poste' => $_POST['poste'],
+              'contact' => $_POST['contact'],
+              'mail' => $_POST['mail'],
+          ));
+          $code = 200;
+      }
+
+      $contenue_security = $this->load->view('security/mpersonnel', compact('code','personnel'), TRUE);
+      $contenue_base = $this->load->view('security/index', compact('contenue_security'), TRUE);
+      $this->load->view('base', compact('contenue_base'));
+    }
 
 }

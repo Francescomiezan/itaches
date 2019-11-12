@@ -36,6 +36,7 @@
                                 <div><span class="fa fa-user fa-2x"></span></div>
                                 <span><?= $this->user['poste'] ?></span>
                             </div>
+                            <a href="<?= site_url('security/modifier_personnel') ?>" class="dropdown-item"><span class="fa fa-edit mr-2"></span>Modifier mon compte</a>
                             <a href="<?= site_url('security/logout') ?>" class="dropdown-item"><span class="fa fa-sign-out-alt mr-2"></span>Se deconnecter</a>
                         </div>
                     </li>
