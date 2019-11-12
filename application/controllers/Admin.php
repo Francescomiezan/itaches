@@ -12,7 +12,8 @@ class Admin extends CI_Controller
         $code = 500;
 
         if($this->form_validation->run() == TRUE){
-
+            
+            //modification du code
             $code = 300;
             $user = $this->personnel->get(array(
                 'username'=>$_POST['username'],
